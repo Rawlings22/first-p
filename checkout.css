@@ -1,0 +1,37 @@
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #006a61;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e0e3e5;
+    border-radius: 10px;
+}
+
+.step-line {
+    height: 2px;
+    flex-grow: 1;
+}
+
+body {
+    min-height: max(884px, 100dvh);
+}

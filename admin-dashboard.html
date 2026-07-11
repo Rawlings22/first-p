@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="dashboard.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 w-full border-b border-outline-variant z-50">
+<div class="flex justify-between items-center w-full px-4 md:px-margin-desktop h-16 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-primary" href="index.html">PEPTICORE</a>
+<div class="flex items-center gap-4">
+<span class="hidden md:inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest">
+<span class="material-symbols-outlined text-[16px]">shield_person</span>
+Admin
+</span>
+<a class="p-2 hover:bg-surface-container-low rounded-full transition-colors flex items-center justify-center" href="index.html" title="Home">
+<span class="material-symbols-outlined text-primary">home</span>
+</a>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors" id="logout-btn" title="Log out" type="button">
+<span class="material-symbols-outlined text-primary">logout</span>
+</button>
+</div>
+</div>
+</header>
+
+<main class="hidden max-w-container-max mx-auto px-4 md:px-margin-desktop py-10 space-y-12" id="dashboard-content">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Admin Dashboard</h1>
+<p class="text-on-surface-variant" id="welcome-text">Manage the catalog and monitor orders.</p>
+</div>
+
+<!-- Stats -->
+<section class="grid grid-cols-1 sm:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-gutter shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Total Products</p>
+<p class="font-headline-lg text-headline-lg text-primary mt-2" id="stat-products">—</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-gutter shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Total Orders</p>
+<p class="font-headline-lg text-headline-lg text-primary mt-2" id="stat-orders">—</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-gutter shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Total Revenue</p>
+<p class="font-headline-lg text-headline-lg text-primary mt-2" id="stat-revenue">—</p>
+</div>
+</section>
+
+<!-- Product Management -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-primary">Product Catalog</h2>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:bg-secondary transition-all flex items-center gap-2" id="add-product-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+Add Product
+</button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-x-auto shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Product</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Price</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Stock</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody id="product-table-body"></tbody>
+</table>
+<p class="hidden text-center text-on-surface-variant py-10" id="product-empty-state">No products yet. Add your first product above.</p>
+</div>
+</section>
+
+<!-- Recent Orders -->
+<section class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Recent Orders</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-x-auto shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Order</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Customer</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Total</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="px-4 py-3 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody id="orders-table-body"></tbody>
+</table>
+<p class="hidden text-center text-on-surface-variant py-10" id="orders-empty-state">No orders placed yet.</p>
+</div>
+</section>
+</main>
+
+<!-- Add / Edit Product Modal -->
+<div class="hidden fixed inset-0 z-[60] items-center justify-center p-4" id="product-modal">
+<div class="absolute inset-0 bg-black/50" id="product-modal-backdrop"></div>
+<div class="relative bg-surface w-full max-w-lg rounded-xl max-h-[85vh] overflow-y-auto p-gutter space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-primary" id="product-modal-title">Add Product</h3>
+<button aria-label="Close" class="p-2 hover:bg-surface-container-low rounded-full transition-colors" id="product-modal-close" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-4" id="product-form">
+<input id="product-form-id" type="hidden"/>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Product Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" id="product-form-name" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Price (USD)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" id="product-form-price" min="0" required="" step="0.01" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Purity (%)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" id="product-form-purity" max="100" min="0" step="0.1" type="number"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Category Label</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" id="product-form-category-label" placeholder="e.g. Weight Management" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Research Goals</label>
+<div class="custom-scrollbar flex flex-wrap gap-3 max-h-40 overflow-y-auto pr-2">
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="muscle-growth"/>Muscle Growth</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="fat-loss"/>Fat Loss</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="recovery"/>Healing &amp; Recovery</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="cognitive"/>Cognitive Health</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="inflammation"/>Inflammation</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="blood-sugar-control"/>Blood Sugar Control</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="longevity"/>Longevity</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="sleep-improvement"/>Sleep Improvement</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="hormone-balance"/>Hormone Balance</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="energy-boost"/>Energy Boost</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="skin-hair-nail"/>Skin, Nail &amp; Hair Health</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="cellular-repair"/>Cellular Repair</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="immune-support"/>Immune Support</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="gut-health"/>Gut Health</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="performance-optimization"/>Performance Optimisation</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="joint-health"/>Joint Health</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="anti-aging"/>Anti-Aging</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="brain-health"/>Brain Health</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="mental-clarity"/>Mental Clarity</label>
+<label class="cursor-pointer"><input class="mr-1" type="checkbox" value="libido"/>Enhanced Libido &amp; Intimacy</label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Stock Quantity</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" id="product-form-stock-quantity" min="0" required="" step="1" type="number"/>
+<p class="text-[11px] text-on-surface-variant">In Stock / Low Stock / Backordered is set automatically from this number, and drops automatically as orders are paid for.</p>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Format</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" id="product-form-format">
+<option value="lyophilized">Lyophilized</option>
+<option value="nasal-spray">Nasal Spray</option>
+<option value="premixed">Pre-Mixed</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Description</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-gutter py-3 text-body-md focus:border-secondary" id="product-form-description" rows="3"></textarea>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Product Image</label>
+<input accept="image/*" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary file:mr-4 file:h-full file:border-0 file:bg-surface-container file:px-4 file:text-on-surface" id="product-form-image-file" type="file"/>
+<img alt="Current product image" class="hidden mt-2 h-20 w-20 object-cover rounded-lg border border-outline-variant" id="product-form-image-preview"/>
+<input id="product-form-image-existing" type="hidden"/>
+</div>
+<p class="hidden text-error text-label-sm" id="product-form-error"></p>
+<button class="w-full bg-primary text-on-primary h-12 rounded-xl font-bold text-body-md hover:opacity-90 transition-all" type="submit">Save Product</button>
+</form>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="admin-dashboard.js"></script>
+</body>
+</html>

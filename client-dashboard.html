@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | My Account</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="dashboard.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 w-full border-b border-outline-variant z-50">
+<div class="flex justify-between items-center w-full px-4 md:px-margin-desktop h-16 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-primary" href="index.html">PEPTICORE</a>
+<div class="flex items-center gap-4">
+<a class="p-2 hover:bg-surface-container-low rounded-full transition-colors" href="catalog.html" title="Catalog">
+<span class="material-symbols-outlined text-primary">storefront</span>
+</a>
+<a class="p-2 hover:bg-surface-container-low rounded-full transition-colors" href="cart.html" title="Cart">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</a>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors" id="logout-btn" title="Log out" type="button">
+<span class="material-symbols-outlined text-primary">logout</span>
+</button>
+</div>
+</div>
+</header>
+
+<main class="hidden max-w-container-max mx-auto px-4 md:px-margin-desktop py-10 space-y-12" id="dashboard-content">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">My Account</h1>
+<p class="text-on-surface-variant" id="welcome-text">Manage your profile and view your research orders.</p>
+</div>
+
+<!-- Profile -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-gutter shadow-[0px_10px_30px_rgba(15,23,42,0.05)] flex items-center gap-gutter">
+<div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">person</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-body-lg" id="profile-name">—</p>
+<p class="text-on-surface-variant text-body-md" id="profile-email">—</p>
+<span class="inline-block mt-1 text-[10px] font-label-caps uppercase tracking-widest bg-secondary/10 text-secondary px-2 py-0.5 rounded-full" id="profile-role">Client</span>
+</div>
+</section>
+
+<!-- Order History -->
+<section class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Order History</h2>
+<div class="space-y-4" id="orders-list"></div>
+<div class="hidden text-center py-16 bg-surface-container-lowest border border-dashed border-outline-variant rounded-xl" id="orders-empty-state">
+<span class="material-symbols-outlined text-on-surface-variant text-[40px]">receipt_long</span>
+<p class="mt-4 font-body-md text-on-surface-variant">You haven't placed any orders yet.</p>
+<a class="mt-4 inline-block text-secondary font-label-sm text-label-sm underline" href="catalog.html">Browse Catalog</a>
+</div>
+</section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="client-dashboard.js"></script>
+</body>
+</html>

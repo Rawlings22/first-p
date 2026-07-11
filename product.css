@@ -1,0 +1,15 @@
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 106, 97, 0.1);
+}
+
+.text-clinical-shadow {
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}

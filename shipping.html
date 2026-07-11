@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | Shipping Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="shipping.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-container-max mx-auto">
+<button aria-label="Back" class="p-2 hover:bg-surface-container-low transition-colors rounded-full" id="back-button">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold tracking-tight text-primary"><a href="index.html">PEPTICORE</a></h1>
+<a aria-label="Cart" class="p-2 hover:bg-surface-container-low transition-colors rounded-full" href="cart.html">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</a>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 pt-4 space-y-10">
+<!-- Progress Stepper -->
+<nav class="flex items-center justify-between px-2 py-1">
+<div class="flex flex-col items-center gap-2 relative">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center border-2 border-secondary">
+<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface">Cart</span>
+<div class="absolute top-4 left-full w-full h-[2px] bg-secondary -z-10 -ml-1" style="width: 100px;"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-secondary flex items-center justify-center step-active">
+<div class="w-2.5 h-2.5 bg-secondary rounded-full"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-bold">Shipping</span>
+<div class="absolute top-4 right-full w-full h-[2px] bg-outline-variant -z-10 -mr-1" style="width: 100px; transform: translateX(100%);"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center">
+<span class="text-label-sm font-label-sm text-outline">3</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Payment</span>
+</div>
+</nav>
+<!-- Delivery Address Summary -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h2 class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Delivery Address</h2>
+<button class="text-secondary text-label-sm font-label-sm font-bold hover:underline" id="edit-address-button" type="button">Change</button>
+</div>
+<div class="bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant shadow-[0px_10px_30px_rgba(15,23,42,0.05)] flex items-start gap-gutter">
+<div class="p-2 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-on-surface" id="address-name">Jameson Sterling</p>
+<p class="text-on-surface-variant text-body-md" id="address-lines">842 Research Parkway, Suite 402<br/>Cambridge, MA 02139</p>
+<p class="text-on-surface-variant text-[11px]" id="address-phone">+1 (617) 555-0198</p>
+</div>
+</div>
+</section>
+<!-- Delivery Address Modal -->
+<div class="hidden fixed inset-0 z-[60] items-end md:items-center justify-center" id="address-modal">
+<div class="absolute inset-0 bg-black/50" id="address-modal-backdrop"></div>
+<div class="relative bg-surface w-full md:max-w-md md:rounded-xl rounded-t-2xl max-h-[85vh] overflow-y-auto p-gutter space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-primary">Choose Delivery Address</h3>
+<button aria-label="Close" class="p-2 hover:bg-surface-container-low rounded-full transition-colors" id="address-modal-close" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-3" id="saved-address-list"></div>
+<button class="w-full border border-dashed border-outline-variant rounded-xl py-3 text-secondary font-label-sm font-bold flex items-center justify-center gap-2 hover:border-secondary transition-colors" id="add-address-toggle" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+Add New Address
+</button>
+<form class="hidden space-y-4" id="add-address-form">
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" name="name" placeholder="Jameson Sterling" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Street Address</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" name="street" placeholder="842 Research Parkway, Suite 402" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">City, State</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" name="city" placeholder="Cambridge, MA" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">ZIP Code</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" name="zip" placeholder="02139" required="" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Phone</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg h-12 px-gutter text-body-md focus:border-secondary" name="phone" placeholder="+1 (617) 555-0198" required="" type="tel"/>
+</div>
+<button class="w-full bg-primary text-on-primary h-12 rounded-xl font-bold text-body-md hover:opacity-90 transition-all" type="submit">Save Address</button>
+</form>
+</div>
+</div>
+<!-- Shipping Method Selection -->
+<section class="space-y-4">
+<h2 class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Shipping Method</h2>
+<div class="space-y-4" id="shipping-options">
+<!-- Standard Shipping -->
+<label class="relative block cursor-pointer group">
+<input checked="" class="peer sr-only" name="shipping" type="radio" value="standard"/>
+<div class="p-gutter bg-surface-container-lowest border border-outline-variant rounded-xl peer-checked:border-secondary peer-checked:border-2 peer-checked:bg-secondary-container/5 transition-all flex items-center justify-between">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container rounded-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant">local_shipping</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Standard Shipping</h3>
+<p class="text-on-surface-variant text-[11px]">5-7 business days</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">$9.99</p>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Express Shipping -->
+<label class="relative block cursor-pointer group">
+<input class="peer sr-only" name="shipping" type="radio" value="express"/>
+<div class="p-gutter bg-surface-container-lowest border border-outline-variant rounded-xl peer-checked:border-secondary peer-checked:border-2 peer-checked:bg-secondary-container/5 transition-all flex items-center justify-between">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container rounded-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant">bolt</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Express Shipping</h3>
+<p class="text-on-surface-variant text-[11px]">2-3 business days</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">$24.99</p>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Cold Chain Shipping -->
+<label class="relative block cursor-pointer group">
+<input class="peer sr-only" name="shipping" type="radio" value="coldchain"/>
+<div class="p-gutter bg-surface-container-lowest border border-outline-variant rounded-xl peer-checked:border-secondary peer-checked:border-2 peer-checked:bg-secondary-container/5 transition-all flex items-center justify-between overflow-hidden">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container rounded-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">ac_unit</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-on-surface">Overnight Cold-Chain</h3>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-tighter">Recommended</span>
+</div>
+<p class="text-on-surface-variant text-[11px]">Next business day (Temperature controlled)</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">$45.00</p>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Order Summary Lite -->
+<section class="bg-surface-container-low p-gutter rounded-xl space-y-4">
+<div class="flex justify-between text-on-surface-variant">
+<span class="text-label-sm font-label-sm" id="subtotal-label-summary">Subtotal (0 items)</span>
+<span class="text-label-sm font-label-sm font-bold text-on-surface" id="subtotal-price-summary">$0.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="text-label-sm font-label-sm">Lab Discount</span>
+<span class="text-label-sm font-label-sm font-bold text-secondary" id="discount-price-summary">-$0.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="text-label-sm font-label-sm">Shipping</span>
+<span class="text-label-sm font-label-sm font-bold text-on-surface" id="shipping-price-summary">$9.99</span>
+</div>
+<div class="h-px bg-outline-variant/30"></div>
+<div class="flex justify-between">
+<span class="text-body-lg font-bold">Total</span>
+<span class="text-headline-md font-headline-md font-bold text-primary" id="total-price-summary">$9.99</span>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant px-4 py-gutter z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary text-on-primary h-14 rounded-xl font-bold text-body-lg flex items-center justify-center gap-4 active:scale-[0.98] transition-transform hover:opacity-90" id="continue-button">
+                Continue to Payment
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="shipping.js"></script>
+</body>
+</html>

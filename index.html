@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | The Science of Longevity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/10 shadow-[0px_10px_30px_rgba(15,23,42,0.05)] h-20 transition-all duration-300">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
+<!-- Brand Identity -->
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="index.html">PEPTICORE</a>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary py-1" href="index.html">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-1" href="catalog.html">Catalog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-1" href="blog.html">Science</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-1" href="wholesale.html">Wholesale</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-1" href="contact.html">Contact</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/20">
+<button class="material-symbols-outlined text-[20px] text-on-surface-variant mr-2 hover:text-primary transition-colors" id="header-search-btn" type="button">search</button>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm w-40 placeholder:text-outline" id="header-search-input" placeholder="Search molecules..." type="text"/>
+</div>
+<a class="p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center text-on-surface-variant hover:text-primary" href="login.html">
+<span class="material-symbols-outlined">account_circle</span>
+</a>
+<a class="relative p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center group" href="cart.html">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-all">shopping_bag</span>
+</a>
+<a class="hidden md:inline-block bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:bg-secondary transition-all" href="login.html">Login</a>
+<button aria-expanded="false" aria-label="Open menu" class="md:hidden p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center text-on-surface-variant" id="mobile-menu-btn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<div class="hidden md:hidden flex-col gap-1 bg-surface border-b border-outline-variant/10 px-margin-mobile py-4 fixed top-20 left-0 w-full z-40 shadow-[0px_10px_30px_rgba(15,23,42,0.08)]" id="mobile-menu-panel">
+<a class="font-body-md text-body-md text-secondary font-bold py-3 border-b border-outline-variant/10" href="index.html">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="catalog.html">Catalog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="blog.html">Science</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="wholesale.html">Wholesale</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-primary font-bold py-3" href="login.html">Login</a>
+</div>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center pt-20 overflow-hidden">
+
+<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="z-10 max-w-xl">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-12 h-[1px] bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest">ADVANCED PEPTIDE RESEARCH</span>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-6 leading-tight">The Science of Longevity.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                    Pepticore delivers ultra-pure, 3rd-party verified synthetic peptides engineered for professional research. Discover the molecular future of recovery, cognition, and metabolic health.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-label-sm uppercase tracking-wider hover:bg-on-secondary-container transition-all shadow-lg shadow-secondary/10 inline-block text-center" href="catalog.html">
+                        Explore Catalog
+                    </a>
+<a class="border border-secondary text-secondary px-8 py-4 rounded-lg font-label-sm uppercase tracking-wider hover:bg-secondary/5 transition-all inline-block text-center" href="#purity">
+                        Purity Protocols
+                    </a>
+</div>
+<div class="mt-16 flex items-center gap-8 border-t border-outline-variant/30 pt-8">
+<div>
+<div class="font-headline-md text-headline-md font-bold">99.8%</div>
+<div class="font-label-sm text-on-surface-variant">Average Purity</div>
+</div>
+<div class="w-px h-10 bg-outline-variant/30"></div>
+<div>
+<div class="font-headline-md text-headline-md font-bold">ISO-9001</div>
+<div class="font-label-sm text-on-surface-variant">Certified Lab</div>
+</div>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute -inset-10 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="relative glass-card rounded-2xl p-8 scientific-border shadow-2xl">
+<img class="w-full h-[500px] object-cover rounded-xl mb-6" alt="A high-end, minimalist product shot of a pharmaceutical-grade clear glass vial with a white flip-top cap, containing white lyophilized powder. The vial is placed on a reflective white medical laboratory surface. The background is a clean, bright, out-of-focus clinical laboratory with soft teal and white lighting. Professional, sharp focus, luxury wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWznX14vuuM8JEoWR0kHi3u_lpmLAWzwjXl5tg7xfsj9hT70wa_TV3BQKPuM1ccHCpQHA_VWXYvqCDSTpmLQsIJO1SFK-VYrjEvdXnE_Pgkmj_4S0cJUIHPNmc7zcCXe_9Wvw_05tdXBWUr0ah2Yhhz48NAtRs5Jo4sEm1Yt_K_Mopa17nPLzlG8MTprracFgJ75a6y0q6IADN9VkNanaBQAdJtSg9QEumhFQK2SDnKXpDnE8J-i11"/>
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-caps text-label-caps text-secondary">FEATURED COMPOUND</span>
+<h3 class="font-headline-md text-headline-md mt-1">BPC-157 ARG</h3>
+</div>
+<div class="text-right">
+<span class="block font-label-caps text-label-caps text-on-surface-variant">PURITY TESTED</span>
+<span class="font-headline-md text-headline-md">10MG</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">Precision Categorization</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Navigate our curated selection of high-performance compounds, organized by physiological pathway.</p>
+</div>
+<a class="text-secondary font-label-sm flex items-center gap-2 group hover:underline underline-offset-4" href="catalog.html">
+                    VIEW ALL CATEGORIES
+                    <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
+<!-- Recovery -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-2xl scientific-border">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzrfM7UrDb7QXlBm_AFalbpJyPS18yBEBsnjcPYzSENhoId2SflMH-5fnIahEkQk_1MylhvIV_91LLmOZU5JeQ-4zgoKzHAjF_y0LuRqjzsa7A4VO2xqCKI3K1ue1fWI9SDUOdi1PMG5CBlwCDzV7XQ-9HHEfwANdVUEGKw2Uq3n7WRiyOU0fY5uVTh2gZlvdDK9u-UCIJw3RUcVQw3n5b47eFQrHcwTe-IK5dREaRdzsFBOoD2P0Y')" role="img" aria-label="A professional close-up of a high-performance athlete's musculature, focusing on the shoulder and back."></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 text-white w-full">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary text-white text-[10px] font-bold tracking-tighter uppercase mb-4">Cellular Repair</span>
+<h3 class="text-4xl font-bold mb-4">Recovery</h3>
+<p class="text-white/70 max-w-md font-body-md mb-6">Optimizing musculoskeletal repair and systemic inflammatory response through bio-identical signaling.</p>
+<a class="flex items-center gap-2 font-label-caps text-[11px] tracking-widest group/btn" href="catalog.html?goal=recovery">
+                            EXPLORE RECOVERY <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Metabolic -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-2xl scientific-border bg-primary-container">
+
+<div class="relative p-10 h-full flex flex-col justify-end">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container-highest/20 text-white text-[10px] font-bold tracking-tighter uppercase mb-4">Optimization</span>
+<h3 class="text-3xl font-bold text-white mb-4">Metabolic</h3>
+<p class="text-white/60 font-body-md mb-6">Enhancing mitochondrial efficiency and adipose regulation.</p>
+<a class="flex items-center gap-2 font-label-caps text-[11px] tracking-widest text-white/80 group/btn" href="catalog.html?goal=fat-loss">
+                            EXPLORE METABOLIC <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Cognition -->
+<div class="md:col-span-12 group relative overflow-hidden rounded-2xl h-[300px] scientific-border">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIOwGCt6Ka9P5YqPTPq37t1dcG8roBjS5HK7_q8dHnKcXFGwdugP4USVSO_rjDk7zqS4xbT67HQ5jGlGLootVYiS31a00U_22rOLQK-R8utIp4TA-yEA93lqnPIzEfY1jPB3gXwt0Hae7QsPdzeh3gDvVQZa8vnY7JdjepM6OhArKQGTuDVOT1edbHh8gp2-Ro7GTyIHL9r_KzfZjib6KCSC8fFG_GZ5n3ZRSfl6hOIM3F28D15UHn')" role="img" aria-label="A clean, abstract representation of neural pathways, glowing soft blue and white filaments."></div>
+<div class="absolute inset-0 bg-black/40"></div>
+<div class="relative p-10 h-full flex flex-col justify-center items-center text-center">
+<h3 class="text-4xl font-bold text-white mb-2">Cognition &amp; Neurogenesis</h3>
+<p class="text-white/80 max-w-2xl font-body-md mb-8">Unlocking neural plasticity and protective cognitive mechanisms through advanced neuropeptides.</p>
+<a class="bg-white text-primary px-10 py-3 rounded-lg font-label-sm tracking-widest hover:bg-secondary hover:text-white transition-all inline-block" href="catalog.html?goal=cognitive">
+                            EXPLORE NOOTROPICS
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Purity Section -->
+<section class="py-24 bg-surface-container-low overflow-hidden" id="purity">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="relative rounded-2xl overflow-hidden shadow-2xl">
+<img class="w-full aspect-square object-cover" alt="A macro photograph of a laboratory technician in white clinical gloves holding a glass pipette over a test tube." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-yflA31GszW-CbCVa10nzc7tvwQVc9qyAXlVCev8DPGerQrPfSRsY663aPO079veiZ3xcyC9l1_TCruoAOdFITXVCe0eem6tVv7AgPTTNk2uO1kB5-RgBrfShuNeQoOZSyFKlvMJyv5qhtQh1xe_2rK-VPAhd76HLtph--cSnJy1TbSg48V_9x2Fjku2DwyXIlQBsFEYPy7Q7gGxef8AXEqiqRIGbuZo-mRidCeHnWqy6b92Vy8jl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 glass-card p-6 rounded-xl border border-white/20">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-secondary rounded-full">
+<span class="material-symbols-outlined text-white">verified</span>
+</div>
+<div>
+<h4 class="text-white font-bold">Third-Party HPLC Tested</h4>
+<p class="text-white/70 text-label-sm">COA available for every single batch.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-secondary tracking-[0.2em] mb-6 block">LABORATORY STANDARDS</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 leading-tight">Purity Guaranteed.<br/>Validated by Science.</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary text-3xl shrink-0">biotech</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">HPLC/MS Certification</h4>
+<p class="text-on-surface-variant font-body-md">High-Performance Liquid Chromatography and Mass Spectrometry ensure molecular weight and purity exceed 99% in every vial.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary text-3xl shrink-0">science</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Internal Standardization</h4>
+<p class="text-on-surface-variant font-body-md">Our peptides are synthesized using the highest grade Fmoc-protected amino acids and processed in a sterile ISO class-5 environment.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary text-3xl shrink-0">inventory</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Cold Chain Integrity</h4>
+<p class="text-on-surface-variant font-body-md">From synthesis to shipment, our products are climate-controlled to preserve delicate molecular structures and prevent degradation.</p>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<a class="bg-primary text-on-primary px-10 py-4 rounded-lg font-label-sm uppercase tracking-widest hover:bg-secondary transition-all inline-block" href="wholesale.html#coa-database">
+                        Search COA Database
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-24 bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center justify-between mb-16">
+<h2 class="font-headline-lg text-headline-lg">Priority Compounds</h2>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="carousel-prev" type="button">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="carousel-next" type="button">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="product-carousel">
+<!-- Product Card 1 -->
+<div class="group flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start" data-badge="In Stock" data-category="Recovery" data-detail-href="product.html" data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuB9g7gSjZAAhi4kBldvgyafMS9fRmPxKr4WcPHvikomeFoHtkeGo1RFiZxQKOsqd62xS_aKjrQTOPoKMkpTKarAN6ETLWtpcbhsLtfvS1ckp7UaNb66Cn4EOi5bi0C9KEgcIIMauVwXN5WsfMEM6AzlyfKqKV9zokwiAvj_nDBOfRtTwfiMLpN2iGk1a8bXpPesW4tclV-MUM2c-G9h8XZ8ov0nq4IfQlHd4cMEi7eC_aD17Fsxli5_" data-name="BPC-157" data-price="$45.00" data-size="5MG">
+<div class="relative bg-surface-container-low rounded-xl overflow-hidden mb-6 aspect-[4/5] scientific-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Minimalist, professional medical product photography of a glass peptide vial with a blue cap against a soft grey-white studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9g7gSjZAAhi4kBldvgyafMS9fRmPxKr4WcPHvikomeFoHtkeGo1RFiZxQKOsqd62xS_aKjrQTOPoKMkpTKarAN6ETLWtpcbhsLtfvS1ckp7UaNb66Cn4EOi5bi0C9KEgcIIMauVwXN5WsfMEM6AzlyfKqKV9zokwiAvj_nDBOfRtTwfiMLpN2iGk1a8bXpPesW4tclV-MUM2c-G9h8XZ8ov0nq4IfQlHd4cMEi7eC_aD17Fsxli5_"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight shadow-sm">In Stock</span>
+</div>
+<button class="quick-view-trigger absolute bottom-4 left-4 right-4 bg-primary text-white py-3 rounded-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 font-label-sm uppercase tracking-widest" type="button">
+                            Quick View
+                        </button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">BPC-157</h3>
+<span class="font-headline-md text-headline-md">$45.00</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-[11px] font-bold">5MG</span>
+<span class="text-on-surface-variant text-[11px] uppercase tracking-wider">Recovery</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start" data-badge="Popular" data-category="Regeneration" data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBwiuPcblNVrD4tVzKxPFYEDvzauoaydafv_t9l98yb5U5292DtlhmEXoEraFZlugEtseXOEg4rBC8yBbC93yEEw9rqx3OPP0g-t_WUrhqny753YiynFPdMl01XHptrIlmym7IOvCR0KnH8xvPH4yGjR1IX-jrbKAvNFJhE6mOLQpv_iIKaIiKsffPm5n5EMxJ9PCNR8TagH9qWQ7s_z6N98TfrlJQ6afaGwDIOr433d0yTc_g4CqP5" data-name="TB-500" data-price="$58.00" data-size="2MG">
+<div class="relative bg-surface-container-low rounded-xl overflow-hidden mb-6 aspect-[4/5] scientific-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Close-up of a premium glass vial with a black cap, containing pharmaceutical-grade peptide powder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwiuPcblNVrD4tVzKxPFYEDvzauoaydafv_t9l98yb5U5292DtlhmEXoEraFZlugEtseXOEg4rBC8yBbC93yEEw9rqx3OPP0g-t_WUrhqny753YiynFPdMl01XHptrIlmym7IOvCR0KnH8xvPH4yGjR1IX-jrbKAvNFJhE6mOLQpv_iIKaIiKsffPm5n5EMxJ9PCNR8TagH9qWQ7s_z6N98TfrlJQ6afaGwDIOr433d0yTc_g4CqP5"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight shadow-sm">Popular</span>
+</div>
+<button class="quick-view-trigger absolute bottom-4 left-4 right-4 bg-primary text-white py-3 rounded-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 font-label-sm uppercase tracking-widest" type="button">
+                            Quick View
+                        </button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">TB-500</h3>
+<span class="font-headline-md text-headline-md">$58.00</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-[11px] font-bold">2MG</span>
+<span class="text-on-surface-variant text-[11px] uppercase tracking-wider">Regeneration</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start" data-category="Metabolic" data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBXIV_l8orFD9WcmMacQPCMCjTjTzA5QqqlauPk6sQIjvOjxXSzgMo16Co9oYlgfN3QZbVxazpOJztxIGOtnyE0AQmtrjFVW7ye8wFmV0Sz8i1w3sjLWodZ7bqtNpW8cIDT4imfsJOCziW10KXBY93juGzkV0LuJ9kxXTQxgSvMyeyVylj1cutyWpQlbnslrKlR9pW6CmvRuiHqrubFrWywShtcM7ji0CyTaZOrgk39sBhV5_BrF6sL" data-name="Semaglutide" data-price="$120.00" data-size="5MG">
+<div class="relative bg-surface-container-low rounded-xl overflow-hidden mb-6 aspect-[4/5] scientific-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="A clean pharmaceutical product shot of a peptide vial with a green cap." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXIV_l8orFD9WcmMacQPCMCjTjTzA5QqqlauPk6sQIjvOjxXSzgMo16Co9oYlgfN3QZbVxazpOJztxIGOtnyE0AQmtrjFVW7ye8wFmV0Sz8i1w3sjLWodZ7bqtNpW8cIDT4imfsJOCziW10KXBY93juGzkV0LuJ9kxXTQxgSvMyeyVylj1cutyWpQlbnslrKlR9pW6CmvRuiHqrubFrWywShtcM7ji0CyTaZOrgk39sBhV5_BrF6sL"/>
+<button class="quick-view-trigger absolute bottom-4 left-4 right-4 bg-primary text-white py-3 rounded-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 font-label-sm uppercase tracking-widest" type="button">
+                            Quick View
+                        </button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">Semaglutide</h3>
+<span class="font-headline-md text-headline-md">$120.00</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-[11px] font-bold">5MG</span>
+<span class="text-on-surface-variant text-[11px] uppercase tracking-wider">Metabolic</span>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start" data-badge="Limited" data-category="Longevity" data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBD1MQW-fe8tTIN5zE5MSkq0PsVPFVafoNJ5lPTIg67m-JczXClWCTrrJ6fS5GOTtVsJQo5g2HJeIUn-sFIlQYtvN5f70GBP2c19v3Tq2FFKdRtfhV0fUrdspjIgAOT1C9Tl3JjJ7RMI4ZcSgGFt4kWgsAZ7PPLN13nuwaaKu-vRRxchIldBUR0yp9zYK-lGyYZsO9mH2c4KAdWaywFp-_ObdMGsGHPWjpwMLhi0xCddeO74ZQ6i4fA" data-name="Epitalon" data-price="$85.00" data-size="10MG">
+<div class="relative bg-surface-container-low rounded-xl overflow-hidden mb-6 aspect-[4/5] scientific-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Macro photography of a medical vial with a grey flip-top, containing white peptide powder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD1MQW-fe8tTIN5zE5MSkq0PsVPFVafoNJ5lPTIg67m-JczXClWCTrrJ6fS5GOTtVsJQo5g2HJeIUn-sFIlQYtvN5f70GBP2c19v3Tq2FFKdRtfhV0fUrdspjIgAOT1C9Tl3JjJ7RMI4ZcSgGFt4kWgsAZ7PPLN13nuwaaKu-vRRxchIldBUR0yp9zYK-lGyYZsO9mH2c4KAdWaywFp-_ObdMGsGHPWjpwMLhi0xCddeO74ZQ6i4fA"/>
+<div class="absolute top-4 left-4">
+<span class="bg-error text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight shadow-sm">Limited</span>
+</div>
+<button class="quick-view-trigger absolute bottom-4 left-4 right-4 bg-primary text-white py-3 rounded-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 font-label-sm uppercase tracking-widest" type="button">
+                            Quick View
+                        </button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">Epitalon</h3>
+<span class="font-headline-md text-headline-md">$85.00</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-[11px] font-bold">10MG</span>
+<span class="text-on-surface-variant text-[11px] uppercase tracking-wider">Longevity</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick View Modal -->
+<div class="fixed inset-0 z-[200] hidden items-center justify-center p-4" id="quick-view-modal">
+<div class="absolute inset-0 bg-primary/60 backdrop-blur-sm" id="quick-view-backdrop"></div>
+<div class="relative bg-surface-container-lowest rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto grid grid-cols-1 sm:grid-cols-2">
+<button aria-label="Close quick view" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-all" id="quick-view-close" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="aspect-square sm:aspect-auto bg-surface-container-low">
+<img alt="" class="w-full h-full object-cover" id="quick-view-image"/>
+</div>
+<div class="p-8 flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary mb-2" id="quick-view-category"></span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4" id="quick-view-name"></h3>
+<div class="flex items-center gap-3 mb-6">
+<span class="font-headline-md text-headline-md text-primary" id="quick-view-price"></span>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-[11px] font-bold" id="quick-view-size"></span>
+</div>
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-tight mb-8 self-start" id="quick-view-badge"></span>
+<div class="mt-auto space-y-3">
+<a class="block text-center bg-primary text-on-primary py-3 rounded-lg font-label-sm uppercase tracking-widest hover:bg-secondary transition-all" href="#" id="quick-view-details-link">View Full Details</a>
+<a class="block text-center border border-outline-variant text-on-surface py-3 rounded-lg font-label-sm uppercase tracking-widest hover:bg-surface-container transition-all" href="catalog.html">Browse Full Catalog</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<a class="font-headline-md text-headline-md font-bold text-primary mb-6 block" href="index.html">PEPTICORE</a>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Setting the global standard for peptide research purity and clinical-grade synthesis.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-8 tracking-widest">SHOP</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="catalog.html?goal=recovery">Recovery Compounds</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="catalog.html?goal=fat-loss">Metabolic Research</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="catalog.html?goal=cognitive">Nootropic Peptides</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="catalog.html">Supplies &amp; Equipment</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-8 tracking-widest">SCIENCE</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="#purity">Purity Protocols</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="wholesale.html#coa-database">COA Database</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="blog.html">Research Whitepapers</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-all hover:translate-x-1 inline-block" href="#">Dosing Guidelines</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-8 tracking-widest">NEWSLETTER</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Stay informed on the latest longevity research and clinical breakthroughs.</p>
+<div class="flex">
+<input class="bg-surface-container-lowest border border-outline-variant rounded-l-lg px-4 py-2 w-full focus:ring-1 focus:ring-secondary focus:border-secondary outline-none text-body-md" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-secondary transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-widest">© 2024 PEPTICORE PHARMACEUTICALS. FOR RESEARCH PURPOSES ONLY.</p>
+<div class="flex gap-8">
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-all" href="privacy.html">Privacy Policy</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-all" href="shipping-returns.html">Shipping &amp; Returns</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-all" href="wholesale.html">Wholesale Terms</a>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="mobile-menu.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

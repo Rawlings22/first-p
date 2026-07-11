@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wholesale Portal | PEPTICORE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="wholesale.css" rel="stylesheet"/>
+<!-- Tailwind Config Execution -->
+<script id="tailwind-config" src="tailwind-config.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar Execution from JSON -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/10 shadow-[0px_10px_30px_rgba(15,23,42,0.05)] transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="index.html">PEPTICORE</a>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="catalog.html">Catalog</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Science</a>
+<a class="font-label-sm text-label-sm text-secondary font-bold border-b-2 border-secondary" href="wholesale.html">Wholesale</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-6">
+<div class="relative group">
+<button class="material-symbols-outlined text-primary cursor-pointer" data-icon="search" id="wholesale-search-toggle" type="button">search</button>
+<div class="hidden absolute top-full right-0 mt-2 bg-white border border-outline-variant rounded-full shadow-lg px-4 py-2 items-center gap-2 w-64" id="wholesale-search-box">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant/50" id="wholesale-search-input" placeholder="Search products..." type="text"/>
+</div>
+</div>
+<a class="flex items-center space-x-2 cursor-pointer group" href="login.html">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm hidden lg:inline">Lab Partner Portal</span>
+</a>
+<a class="relative bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:bg-secondary transition-all" href="cart.html">
+                    Cart
+                </a>
+<button aria-expanded="false" aria-label="Open menu" class="md:hidden p-2 rounded-full hover:bg-surface-container transition-colors flex items-center justify-center text-primary" id="mobile-menu-btn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<div class="hidden md:hidden flex-col gap-1 bg-surface border-b border-outline-variant/10 px-margin-mobile py-4 fixed top-20 left-0 w-full z-40 shadow-[0px_10px_30px_rgba(15,23,42,0.08)]" id="mobile-menu-panel">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="catalog.html">Catalog</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="blog.html">Science</a>
+<a class="font-label-sm text-label-sm text-secondary font-bold py-3 border-b border-outline-variant/10" href="wholesale.html">Wholesale</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3" href="contact.html">Contact</a>
+</div>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center space-x-2 mb-2">
+<div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+<span class="font-label-caps text-label-caps text-secondary">Verified Research Partner</span>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary">Wholesale Portal</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">Welcome back, Dr. Aris Thorne. Access specialized bulk pricing, purity-verified inventory, and direct logistics management.</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 border border-outline px-6 py-3 rounded-full hover:bg-surface-container transition-all" id="download-coa-btn" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+<span class="font-label-sm text-label-sm">Download COA Catalog</span>
+</button>
+<button class="flex items-center gap-2 bg-secondary text-white px-8 py-3 rounded-full hover:opacity-90 shadow-lg transition-all" id="new-bulk-order-btn" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+<span class="font-label-sm text-label-sm">New Bulk Order</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Quick Stats -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] border border-outline-variant/10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Active Research Grants</span>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">04</span>
+<span class="font-label-sm text-label-sm text-secondary">+1 New</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] border border-outline-variant/10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Q4 Volume Discount</span>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">15%</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Gold Tier</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] border border-outline-variant/10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Pending Shipments</span>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">02</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">In Transit</span>
+</div>
+</div>
+</div>
+<!-- Account Manager Widget -->
+<div class="lg:col-span-4 bg-primary text-on-primary p-8 rounded-xl relative overflow-hidden flex flex-col justify-between">
+<div class="relative z-10">
+<span class="font-label-caps text-label-caps text-on-primary-container">Priority Support</span>
+<div class="mt-6 flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-cover bg-center border-2 border-secondary" role="img" aria-label="A professional headshot of a female pharmaceutical account manager in a minimalist white office setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQejoRtMnmoh-9Q_9YuAzbi0kOIL_McA6djXt9NjEyIXauYf6x197Q0nlLuibXjDj_GsJ55VhTVc0YonbM6tKf0gv75s_xOq_cAECcyNXHZlMBoIZLoYJCmX9D3DxOqOixXcazn4jkLAmK9wiq5-V0HEn2RIvLUGwUUsSEagpskA2-QqWLdxGdueWHsY8stRQWPEptY5BARcIt0Q2hmTJuQw36AWD4kBU4v9EtJZU3b7kq53XfzlA3')"></div>
+<div>
+<h4 class="font-headline-md text-headline-md">Elena Vance</h4>
+<p class="font-label-sm text-label-sm text-on-primary-container">Senior Research Advisor</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-2 relative z-10">
+<button class="flex-1 bg-surface-container-highest text-primary py-3 rounded font-label-sm text-label-sm hover:bg-white transition-all">Direct Message</button>
+<button class="w-12 h-12 flex items-center justify-center bg-secondary rounded hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-white" data-icon="call">call</span>
+</button>
+</div>
+<!-- Background decoration -->
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[200px]" data-icon="biotech">biotech</span>
+</div>
+</div>
+<!-- Bulk Pricing Table -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] border border-outline-variant/10 overflow-hidden">
+<div class="p-8 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-primary">Exclusive Partner Catalog</h3>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Filter by Concentration:</span>
+<select class="bg-transparent border-none font-label-sm text-label-sm focus:ring-0 cursor-pointer">
+<option>All Purity Levels</option>
+<option>99.9% Clinical Grade</option>
+<option>Reagent Grade</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant">Product Description</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant">Bulk SKU</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant">Tier Pricing</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant">Stock</th>
+<th class="px-8 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="font-body-md font-bold text-primary">BP-REGEN Peptide Complex</div>
+<div class="text-xs text-on-surface-variant">Vial / 50mg Lyophilized</div>
+</td>
+<td class="px-8 py-6 font-label-caps text-label-caps text-on-surface-variant">SKU-7729-WH</td>
+<td class="px-8 py-6">
+<div class="font-body-md text-secondary font-bold">$124.00</div>
+<div class="text-[10px] text-on-surface-variant">Min. 20 Units</div>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm">High</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:text-secondary transition-colors font-label-sm text-label-sm font-bold">Quick Add +</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="font-body-md font-bold text-primary">SYNTH-NEURO Nootropic</div>
+<div class="text-xs text-on-surface-variant">Oral Solution / 30ml</div>
+</td>
+<td class="px-8 py-6 font-label-caps text-label-caps text-on-surface-variant">SKU-8812-WH</td>
+<td class="px-8 py-6">
+<div class="font-body-md text-secondary font-bold">$89.50</div>
+<div class="text-[10px] text-on-surface-variant">Min. 50 Units</div>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label-sm text-label-sm">Low Stock</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:text-secondary transition-colors font-label-sm text-label-sm font-bold">Quick Add +</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="font-body-md font-bold text-primary">METABO-DRIVE ISO</div>
+<div class="text-xs text-on-surface-variant">Powder / 500g Bulk</div>
+</td>
+<td class="px-8 py-6 font-label-caps text-label-caps text-on-surface-variant">SKU-4401-WH</td>
+<td class="px-8 py-6">
+<div class="font-body-md text-secondary font-bold">$210.00</div>
+<div class="text-[10px] text-on-surface-variant">Min. 10 Units</div>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm">In Stock</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:text-secondary transition-colors font-label-sm text-label-sm font-bold">Quick Add +</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-low/50 text-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="catalog.html">View Entire Wholesale Inventory (142 Items)</a>
+</div>
+</div>
+<!-- Order History & Quick Reorder -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] border border-outline-variant/10 flex-1">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md text-primary">Recent Orders</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="history">history</span>
+</div>
+<div class="space-y-6">
+<!-- Order Card -->
+<div class="group border-b border-outline-variant/10 pb-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">ORDER #BP-99812</div>
+<div class="font-body-md font-bold mt-1">Oct 24, 2024 • Delivered</div>
+</div>
+<div class="font-label-sm text-label-sm font-bold text-primary">$4,120.00</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container text-on-surface-variant px-2 py-1 rounded text-[10px]">BP-REGEN (25)</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-1 rounded text-[10px]">SYNTH (10)</span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 border border-secondary text-secondary py-2 rounded font-label-sm text-label-sm hover:bg-secondary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="replay">replay</span>
+                                Reorder Items
+                            </button>
+</div>
+<!-- Order Card -->
+<div class="group border-b border-outline-variant/10 pb-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">ORDER #BP-99755</div>
+<div class="font-body-md font-bold mt-1">Sept 12, 2024 • Archived</div>
+</div>
+<div class="font-label-sm text-label-sm font-bold text-primary">$12,800.00</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 border border-outline-variant text-on-surface-variant py-2 rounded font-label-sm text-label-sm hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                                View Invoice
+                            </button>
+</div>
+</div>
+</div>
+<!-- COA Verification Card -->
+<div class="bg-secondary-container p-8 rounded-xl border border-secondary/20" id="coa-database">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h4 class="font-headline-md text-headline-md text-on-secondary-container">COA Validation</h4>
+</div>
+<p class="font-body-md text-on-secondary-container mb-6">Verify the Certificate of Analysis for your specific batch number instantly.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-white/50 border-none rounded p-3 text-sm focus:ring-1 focus:ring-secondary" placeholder="Enter Batch #" type="text"/>
+<button class="bg-secondary text-white px-4 rounded hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Documentation & Terms -->
+<section class="mt-24">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Portal Documentation</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<a class="group p-8 bg-surface-container-low rounded-xl hover:bg-white hover:shadow-xl transition-all duration-300" href="index.html#purity">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl" data-icon="science">science</span>
+<h5 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Purity Protocols</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Review our strict 3rd-party HPLC testing methodologies.</p>
+</a>
+<a class="group p-8 bg-surface-container-low rounded-xl hover:bg-white hover:shadow-xl transition-all duration-300" href="shipping-returns.html">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl" data-icon="local_shipping">local_shipping</span>
+<h5 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Cold Chain Logistics</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Temperature-controlled shipping guidelines for research labs.</p>
+</a>
+<a class="group p-8 bg-surface-container-low rounded-xl hover:bg-white hover:shadow-xl transition-all duration-300" href="contact.html">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl" data-icon="description">description</span>
+<h5 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Tax Exemptions</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Manage your institutional tax-exempt status documents.</p>
+</a>
+<a class="group p-8 bg-surface-container-low rounded-xl hover:bg-white hover:shadow-xl transition-all duration-300" href="contact.html">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl" data-icon="contract">contract</span>
+<h5 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">MSA Agreement</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Download and review the Master Service Agreement.</p>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer Execution from JSON -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-6">PEPTICORE</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">Defining the next era of high-performance wellness through molecular precision and scientific transparency.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-secondary mb-2">Research Tools</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all" href="index.html#purity">Purity Protocols</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all" href="#coa-database">COA Database</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-secondary mb-2">Institutional</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all" href="#">Wholesale Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all" href="privacy.html">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-secondary mb-2">Support</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all" href="shipping-returns.html">Shipping &amp; Returns</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all" href="contact.html">Direct Support Line</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-caps text-[10px] text-on-surface-variant">© 2024 PEPTICORE PHARMACEUTICALS. FOR RESEARCH PURPOSES ONLY.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="hub">hub</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="dna">dns</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="microscope">microwave</span>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="mobile-menu.js"></script>
+<script src="wholesale.js"></script>
+</body>
+</html>

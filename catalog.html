@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | Research Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="catalog.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/10 shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center gap-12">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="index.html">PEPTICORE</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-sm text-label-sm text-secondary font-bold border-b-2 border-secondary h-20 flex items-center" href="catalog.html">Catalog</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors h-20 flex items-center" href="blog.html">Science</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors h-20 flex items-center" href="wholesale.html">Wholesale</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors h-20 flex items-center" href="contact.html">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-on-surface-variant/50" placeholder="Search molecules..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<a class="p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center text-on-surface-variant hover:text-primary" href="login.html">
+<span class="material-symbols-outlined">account_circle</span>
+</a>
+<a class="relative p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center text-on-surface-variant hover:text-primary" href="cart.html">
+<span class="material-symbols-outlined">shopping_bag</span>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="md:hidden p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center" id="mobile-menu-btn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="hidden md:hidden flex-col gap-1 bg-surface border-b border-outline-variant/10 px-margin-mobile py-4 fixed top-20 left-0 w-full z-40 shadow-[0px_10px_30px_rgba(15,23,42,0.08)]" id="mobile-menu-panel">
+<a class="font-label-sm text-label-sm text-secondary font-bold py-3 border-b border-outline-variant/10" href="catalog.html">Catalog</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="blog.html">Science</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="wholesale.html">Wholesale</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3" href="contact.html">Contact</a>
+</div>
+<main class="pt-32 pb-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop min-h-screen">
+<div class="flex flex-col md:flex-row gap-12">
+<!-- Sidebar Filter -->
+<aside class="order-2 md:order-1 w-full md:w-64 flex-shrink-0 space-y-10 md:sticky md:top-32 h-fit">
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6 uppercase tracking-widest">Research Goal</h3>
+<div class="custom-scrollbar space-y-4 max-h-80 overflow-y-auto pr-3">
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="fat-loss" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Fat Loss</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="muscle-growth" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Muscle Growth</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="recovery" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Healing &amp; Recovery</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="cognitive" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Cognitive Health</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="inflammation" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Inflammation</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="blood-sugar-control" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Blood Sugar Control</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="longevity" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Longevity</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="sleep-improvement" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Sleep Improvement</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="hormone-balance" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Hormone Balance</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="energy-boost" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Energy Boost</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="skin-hair-nail" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Skin, Nail &amp; Hair Health</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="cellular-repair" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Cellular Repair</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="immune-support" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Immune Support</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="gut-health" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Gut Health</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="performance-optimization" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Performance Optimisation</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="joint-health" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Joint Health</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="anti-aging" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Anti-Aging</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="brain-health" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Brain Health</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="mental-clarity" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Mental Clarity</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-3 transition-all" data-filter="libido" type="checkbox"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Enhanced Libido &amp; Intimacy</span>
+</label>
+</div>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6 uppercase tracking-widest">Purity Grade</h3>
+<div class="space-y-4" id="purity-grade-filter">
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 border-outline-variant text-secondary focus:ring-secondary/20 mr-3" data-purity="usp" name="purity" type="radio" value="usp"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">USP Reference Standard</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="w-5 h-5 border-outline-variant text-secondary focus:ring-secondary/20 mr-3" data-purity="hplc" name="purity" type="radio" value="hplc"/>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">HPLC Verified (99%+)</span>
+</label>
+</div>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6 uppercase tracking-widest">Format</h3>
+<div class="flex flex-wrap gap-2" id="format-filter">
+<button class="format-filter-btn px-4 py-2 bg-surface-container rounded-full text-label-sm font-medium hover:bg-secondary-container transition-all" data-format="lyophilized" type="button">Lyophilized</button>
+<button class="format-filter-btn px-4 py-2 bg-surface-container rounded-full text-label-sm font-medium hover:bg-secondary-container transition-all" data-format="nasal-spray" type="button">Nasal Spray</button>
+<button class="format-filter-btn px-4 py-2 bg-surface-container rounded-full text-label-sm font-medium hover:bg-secondary-container transition-all" data-format="premixed" type="button">Pre-Mixed</button>
+</div>
+</section>
+<div class="pt-6 border-t border-outline-variant/10">
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                        *All products are for laboratory research purposes only. Not for human consumption.
+                    </p>
+</div>
+</aside>
+<!-- Catalog Grid -->
+<div class="order-1 md:order-2 flex-1">
+<a class="hidden mb-6 items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-label-sm font-label-sm hover:bg-secondary transition-all w-fit" href="admin-dashboard.html" id="manage-catalog-link">
+<span class="material-symbols-outlined text-sm">admin_panel_settings</span>
+Manage Catalog
+</a>
+<div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-10">
+<div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-2">Research Catalog</h1>
+<p class="text-on-surface-variant font-body-md max-w-lg">Pharmaceutical-grade peptide formulations, triple-verified for purity and molecular identity.</p>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 text-on-surface-variant font-label-sm">
+<span id="results-count">Showing 6 of 6 products</span>
+<div class="relative">
+<button class="flex items-center gap-1 cursor-pointer hover:text-primary" id="sort-toggle" type="button">
+<span id="sort-label">Sort: Featured</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.1)] z-30 py-2" id="sort-menu">
+<button class="sort-option-btn w-full text-left px-4 py-2 text-label-sm hover:bg-surface-container transition-colors" data-sort="featured" type="button">Featured</button>
+<button class="sort-option-btn w-full text-left px-4 py-2 text-label-sm hover:bg-surface-container transition-colors" data-sort="price-asc" type="button">Price: Low to High</button>
+<button class="sort-option-btn w-full text-left px-4 py-2 text-label-sm hover:bg-surface-container transition-colors" data-sort="price-desc" type="button">Price: High to Low</button>
+<button class="sort-option-btn w-full text-left px-4 py-2 text-label-sm hover:bg-surface-container transition-colors" data-sort="purity-desc" type="button">Purity: High to Low</button>
+<button class="sort-option-btn w-full text-left px-4 py-2 text-label-sm hover:bg-surface-container transition-colors" data-sort="name-asc" type="button">Name: A-Z</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter" id="product-grid">
+<!-- Product cards are rendered by catalog.js from the products array (see PRODUCT_STORAGE_KEY) -->
+</div>
+<!-- Empty State -->
+<div class="hidden text-center py-24" id="no-results-message">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-4">search_off</span>
+<p class="font-headline-md text-headline-md text-primary mb-2">No matching compounds</p>
+<p class="text-on-surface-variant font-body-md">Try selecting a different combination of research goals.</p>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex items-center justify-center gap-4" id="pagination"></div>
+</div>
+</div>
+</main>
+<!-- Purity Banner (Trust Section) -->
+<section class="bg-surface-container-high py-20 border-y border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">biotech</span>
+<div>
+<h4 class="font-headline-md text-lg mb-2">HPLC Verified</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Every batch is tested via High Performance Liquid Chromatography to ensure &gt;99% purity.</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<h4 class="font-headline-md text-lg mb-2">USA Synthesized</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">All research molecules are synthesized in state-of-the-art ISO 9001 certified domestic facilities.</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<h4 class="font-headline-md text-lg mb-2">Live COA Database</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Publicly available Certificate of Analysis for every batch. Transparency in every milligram.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="space-y-6">
+<a class="font-headline-md text-headline-md font-bold text-primary block" href="index.html">PEPTICORE</a>
+<p class="text-on-surface-variant text-sm leading-relaxed">The premier choice for analytical research chemicals and bioactive peptides for scientific inquiry.</p>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase tracking-widest">Protocols</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block font-label-sm" href="index.html#purity">Purity Protocols</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block font-label-sm" href="wholesale.html#coa-database">COA Database</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block font-label-sm" href="#">Molecular Weight Charts</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase tracking-widest">Enterprise</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block font-label-sm" href="wholesale.html">Wholesale Terms</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block font-label-sm" href="wholesale.html">Bulk Pricing</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block font-label-sm" href="#">Logistics &amp; Handling</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase tracking-widest">Newsletter</h5>
+<p class="text-on-surface-variant text-sm mb-4">Receive research updates and batch releases.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container border-none text-sm px-4 focus:ring-1 focus:ring-secondary" placeholder="Researcher Email" type="email"/>
+<button class="bg-primary text-white px-4 py-2 text-sm font-bold hover:bg-secondary transition-colors">JOIN</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] font-label-caps text-on-surface-variant">© 2024 PEPTICORE PHARMACEUTICALS. FOR RESEARCH PURPOSES ONLY.</p>
+<div class="flex gap-8">
+<a class="text-[10px] font-label-caps text-on-surface-variant hover:text-primary" href="privacy.html">Privacy Policy</a>
+<a class="text-[10px] font-label-caps text-on-surface-variant hover:text-primary" href="shipping-returns.html">Shipping &amp; Returns</a>
+<a class="text-[10px] font-label-caps text-on-surface-variant hover:text-primary" href="terms.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Simple Notification System -->
+<div class="fixed bottom-8 right-8 bg-primary text-white px-6 py-4 rounded-lg shadow-xl translate-y-24 opacity-0 transition-all duration-500 z-[100] flex items-center gap-3" id="notification">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<span class="font-label-sm">Item added to research cart.</span>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="mobile-menu.js"></script>
+<script src="catalog.js"></script>
+</body>
+</html>

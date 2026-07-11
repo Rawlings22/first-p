@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="cart.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 w-full border-b border-outline-variant z-50 transition-colors">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-container-max mx-auto">
+<div class="flex items-center gap-1">
+<button aria-label="Back" class="p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full" id="back-button" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+<h1 class="text-headline-md font-headline-md font-bold tracking-tight text-primary"><a href="index.html">PEPTICORE</a></h1>
+<div class="flex items-center gap-1 w-10"></div>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 pt-gutter">
+<!-- Page Title -->
+<div class="mb-gutter">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Your Selection</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant" id="item-count-text">2 items currently in research queue</p>
+</div>
+<!-- Cart Items List (populated from products selected on the catalog page) -->
+<div class="space-y-4" id="cart-items-list"></div>
+<!-- Empty Cart State -->
+<div class="hidden mt-10 py-16 text-center" id="empty-cart-message">
+<span class="material-symbols-outlined text-on-surface-variant text-[40px]">shopping_cart</span>
+<p class="mt-4 font-body-md text-on-surface-variant">Your research queue is empty.</p>
+<a class="mt-4 inline-block text-secondary font-label-sm text-label-sm underline" href="catalog.html">Browse Catalog</a>
+</div>
+<!-- Research Kit Upsell (Subtle) -->
+<div class="mt-10 p-gutter bg-surface-container rounded-xl border border-dashed border-outline flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">biotech</span>
+<span class="font-label-sm text-label-sm text-on-surface">Add Reconstitution Kit?</span>
+</div>
+<button class="text-secondary font-label-sm text-label-sm underline" data-kit-price="15.00" id="recon-kit-btn">Add +$15.00</button>
+</div>
+<!-- Summary Section -->
+<section class="mt-10 border-t border-outline-variant pt-gutter space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-body-md font-body-md text-on-surface-variant">Subtotal</span>
+<span class="text-body-md font-body-md text-on-surface" id="subtotal-value">$179.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md font-body-md text-on-surface-variant">Shipping (Estimated)</span>
+<span class="text-body-md font-body-md text-on-surface" id="shipping-value">$12.50</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md font-body-md text-on-surface-variant">Lab Discount</span>
+<span class="text-body-md font-body-md text-secondary" id="discount-value">-$17.90</span>
+</div>
+<div class="flex justify-between items-center pt-4">
+<span class="font-headline-md text-headline-md text-primary">Total</span>
+<span class="font-headline-md text-headline-md text-primary" id="total-value">$173.60</span>
+</div>
+<p class="text-[11px] text-outline text-right mt-2 italic">Tax calculated at checkout</p>
+</section>
+<!-- Trust Badges -->
+<div class="mt-gutter flex justify-around items-center py-4 border-y border-outline-variant/30">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">verified</span>
+<span class="text-[10px] font-label-sm uppercase tracking-widest text-on-surface-variant">99% Purity</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">medical_services</span>
+<span class="text-[10px] font-label-sm uppercase tracking-widest text-on-surface-variant">Lab Tested</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock</span>
+<span class="text-[10px] font-label-sm uppercase tracking-widest text-on-surface-variant">Secure</span>
+</div>
+</div>
+</main>
+<!-- Checkout Action Bar (Sticky Mobile) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-md border-t border-outline-variant p-4 z-50">
+<div class="max-w-md mx-auto space-y-4">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-label-sm text-label-sm flex items-center justify-center gap-4 active:scale-[0.98] transition-transform" id="checkout-button">
+                PROCEED TO CHECKOUT
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Predicted Bottom Nav Contextual mapping (Cart is Active) -->
+<nav class="flex justify-around items-center pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="catalog.html">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-label-sm">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="blog.html">
+<span class="material-symbols-outlined">science</span>
+<span class="text-[10px] font-label-sm">Research</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary bg-secondary-container/10 rounded-xl px-3 py-1" href="cart.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-[10px] font-label-sm">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="login.html">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-sm">Account</span>
+</a>
+</nav>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="checkout.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- Top AppBar (From JSON) -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline fixed top-0 z-50 w-full h-16">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-container-max mx-auto">
+<button aria-label="Back" class="p-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-full" id="back-button" type="button">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed-dim"><a href="index.html">PEPTICORE</a></h1>
+<a class="p-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-full" href="cart.html">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">shopping_bag</span>
+</a>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 pb-32 px-4">
+<div class="max-w-md mx-auto">
+<!-- Progress Stepper -->
+<div class="flex items-center justify-between mb-16 px-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Cart</span>
+</div>
+<div class="step-line bg-secondary mx-2"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Shipping</span>
+</div>
+<div class="step-line bg-secondary mx-2"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full ring-2 ring-secondary ring-offset-2 bg-surface text-secondary flex items-center justify-center">
+<span class="text-label-sm font-bold">3</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface">Payment</span>
+</div>
+</div>
+<!-- Express Checkout Section -->
+<section class="mb-10">
+<h2 class="text-label-sm font-label-sm text-on-surface-variant mb-gutter uppercase tracking-widest">Express Checkout</h2>
+<div class="grid grid-cols-2 gap-gutter">
+<button class="express-pay-btn bg-primary text-on-primary h-12 rounded flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0px_10px_30px_rgba(15,23,42,0.05)] hover:opacity-90" data-method="Apple Pay" id="apple-pay-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">phone_iphone</span>
+<span class="text-label-sm font-bold">Apple Pay</span>
+</button>
+<button class="express-pay-btn bg-white border border-outline-variant h-12 rounded flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0px_10px_30px_rgba(15,23,42,0.05)] hover:bg-surface-container-low" data-method="Google Pay" id="google-pay-btn" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-label-sm font-bold text-primary">Google Pay</span>
+</button>
+</div>
+<div class="relative flex py-8 items-center">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 text-[11px] text-on-surface-variant">OR CONTINUE WITH</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="space-y-gutter mb-16">
+<h2 class="text-headline-md font-headline-md text-primary mb-gutter">Payment</h2>
+<div class="border border-outline-variant bg-surface rounded-xl p-gutter flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary">lock</span>
+<div>
+<p class="text-body-md font-semibold text-on-surface">Secure payment via Stripe</p>
+<p class="text-[11px] text-on-surface-variant mt-1">You'll enter your card details on Stripe's secure payment page — we never see or store your card number. Apple Pay and Google Pay will also appear there automatically if your device supports them.</p>
+</div>
+</div>
+<p class="hidden text-error text-label-sm bg-error/10 border border-error/30 rounded-sm py-2 px-3" id="payment-error"></p>
+</section>
+<!-- Order Summary -->
+<section class="bg-surface-container-low rounded-xl p-gutter border border-outline-variant mb-16">
+<h3 class="text-label-sm font-bold text-primary mb-gutter uppercase tracking-wider">Order Summary</h3>
+<p class="text-[11px] text-on-surface-variant mb-gutter" id="shipping-address-summary"></p>
+<div class="space-y-4" id="order-summary-lines">
+<!-- Populated from the totals calculated on the Shipping page -->
+</div>
+</section>
+<!-- Complete Action -->
+<div class="space-y-gutter">
+<button class="w-full bg-primary text-on-primary h-14 rounded-xl flex items-center justify-center gap-4 hover:opacity-90 transition-all active:scale-[0.98] shadow-[0px_10px_30px_rgba(15,23,42,0.05)]" id="complete-purchase-button">
+<span class="material-symbols-outlined">lock</span>
+<span class="text-body-lg font-bold" id="complete-purchase-label">Proceed to Secure Payment</span>
+</button>
+<p class="text-[11px] text-center text-on-surface-variant px-gutter">
+                    Payments are encrypted and processed securely. By purchasing, you agree to our <a class="underline" href="terms.html">Terms of Research Use</a>.
+                </p>
+</div>
+</div>
+</main>
+<!-- Order Confirmation Overlay -->
+<div class="hidden fixed inset-0 z-[70] items-center justify-center bg-surface p-4" id="order-success-overlay">
+<div class="max-w-sm w-full text-center space-y-6">
+<div class="w-16 h-16 mx-auto rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">check</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Order Confirmed</h2>
+<p class="font-body-md text-on-surface-variant" id="order-success-message">Thank you. Your research order has been placed.</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-gutter text-left space-y-2">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Order Number</span>
+<span class="font-bold text-primary" id="order-number-value">#PC-000000</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Paid via</span>
+<span class="font-bold text-primary" id="order-method-value">Card</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Total Charged</span>
+<span class="font-bold text-primary" id="order-total-value">$0.00</span>
+</div>
+</div>
+<a class="inline-block w-full bg-primary text-on-primary h-14 rounded-xl font-bold text-body-lg flex items-center justify-center hover:opacity-90 transition-all" href="catalog.html">Continue Shopping</a>
+</div>
+</div>
+<!-- Bottom NavBar (From JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-1 h-20 bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-all" href="catalog.html">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-label-sm font-label-sm">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-all" href="blog.html">
+<span class="material-symbols-outlined">science</span>
+<span class="text-label-sm font-label-sm">Research</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim bg-secondary-container/10 rounded-xl px-3 py-1 scale-95 transition-transform duration-200" href="checkout.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-label-sm font-label-sm">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-all" href="login.html">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Account</span>
+</a>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>

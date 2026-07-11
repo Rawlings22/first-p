@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPTICORE | Science &amp; Research Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="tailwind-config.js"></script>
+<link href="blog.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary/20 selection:text-secondary">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/10 shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center gap-12">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="index.html">PEPTICORE</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="catalog.html">Catalog</a>
+<a class="font-label-sm text-label-sm text-secondary font-bold border-b-2 border-secondary" href="blog.html">Science</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="wholesale.html">Wholesale</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm placeholder:text-outline w-48" id="blog-search-input" placeholder="Search research..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:bg-on-surface/5 p-2 rounded-full transition-all" href="login.html">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</a>
+<a class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-sm hover:bg-primary/90 transition-all shadow-[0px_10px_30px_rgba(15,23,42,0.05)]" href="cart.html">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                        Cart
+                    </a>
+<button aria-expanded="false" aria-label="Open menu" class="md:hidden p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center text-on-surface-variant" id="mobile-menu-btn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="hidden md:hidden flex-col gap-1 bg-surface border-b border-outline-variant/10 px-margin-mobile py-4 fixed top-20 left-0 w-full z-40 shadow-[0px_10px_30px_rgba(15,23,42,0.08)]" id="mobile-menu-panel">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="catalog.html">Catalog</a>
+<a class="font-label-sm text-label-sm text-secondary font-bold py-3 border-b border-outline-variant/10" href="blog.html">Science</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/10" href="wholesale.html">Wholesale</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-3" href="contact.html">Contact</a>
+</div>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<header class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-outline-variant/20 pb-12">
+<div class="max-w-2xl">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">Archive &amp; Intelligence</span>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary mb-6">Scientific Validation &amp; Research</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Explore the frontier of high-performance biochemistry. Our research blog translates clinical breakthroughs into actionable insights for the discerning biological explorer.
+                    </p>
+</div>
+<div class="flex gap-4 mb-2">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" alt="A professional headshot of a clinical scientist in a modern medical laboratory, high-key lighting, minimalist aesthetic, looking into the camera with a confident expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCacoKTMhj5RiKNV_wHXSn-_5eEUacHUU93ZXfQd4UrMCZyjhCAfmz7ZD00xndkwsPhaAcAqurIh8RbpQErGzJJZL4QDlOyYk72cq9Lra7LUDy-NRlPBPoZYOf8mV-tcSK5L1--JCQ2RMCK4ceSzHKtp1ab8kmJ6BjWKCfjX3WgsChOoHiIPhV7FhltlO94WCRsu90yrqzSZhoQdGjO3mBrYazevzN2cTsESHcHGU3bMWVOmlIfbAjQ"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-300 overflow-hidden">
+<img class="w-full h-full object-cover" alt="A professional portrait of a pharmaceutical researcher wearing clean white lab gear, soft clinical lighting, high-end medical journal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWQOWZQCfuD1-sNdmu9KOwQ_neK8VC7YWHwn5Lf-rVR4C25xecw9n28muon1GHmYuUp26LzOVEa0d2IXGTYukoeJ8SiUZWXbmvSG7Ku2ZcE9cklr4WZngMubHY8-zusGpjlJ1wYyfWC9-yGmJcnB9YUfE4LSNSq87T5wCVavLk9LRlQvTGU1BFacvVHz4qSgWrCHtya5TG8wbXW603f3FcF_u329uVX6DZXhei6FkpsaNYed4BTL__"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-400 overflow-hidden">
+<img class="w-full h-full object-cover" alt="A high-quality close-up of a laboratory technician focused on a microscope, soft blue and white lighting, clean clinical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk2iN6AKbDj1IR-KN8vNxiuhAb1sU60KES7sPCsHL2tYKRLYQHv1rCbl9zdUMxeSa3h-sDmgGhuMu6A4cdcMSlRuPnRxjuicklv26g-XBnqfFKJxAA1FazBpYtyNdVT30t8PIl8WRYR1H_ms5Rnb07pRvYZCYsdj7vd00OvrulAf_kMBinIXvlurwLJk6XcHMorhUfcjBsSC889rYslyqBqHnptmIUYGODZnBJ67psQ5mZ8fq6JErk"/>
+</div>
+</div>
+<div class="text-label-sm">
+<span class="font-bold block">12+ Contributors</span>
+<span class="text-on-surface-variant">PhDs &amp; Medical Researchers</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Featured Article (Editorial Hero) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<article class="group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_10px_30px_rgba(15,23,42,0.05)]">
+<div class="lg:col-span-7 h-64 lg:h-[500px] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="A cinematic, high-resolution close-up of a DNA double helix rendered in a translucent, glass-like material with soft teal and white lighting. The background is a clean, minimalist clinical environment. High-performance scientific visualization style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWmagpZOVU6dt6eENmhT1zt2IVSeI4yO58pZXiH6_ayhrnb81s1hKwOTm_auHwDe7FrhFFsTr7sjNVcbFFfaMS6RmYnpvm49D3JdMxOjcQ3-FU-g4A5tXcu1286s4-G8Lh8sdQJuIP5BmlxmN2BAQFCRuxDbflSaiPaUaDWdzZs8Em2Ydhu5pdsmovgA9kidlqeBygFXh9C4lV1zAZgWXuRe1Z0uPshBMkmucRY8l_D1myr5CFDFH"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"></div>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="bg-white/90 glass-effect px-4 py-1.5 rounded-full font-label-caps text-[10px] text-primary">Featured Analysis</span>
+<span class="bg-secondary text-white px-4 py-1.5 rounded-full font-label-caps text-[10px]">New Research</span>
+</div>
+</div>
+<div class="lg:col-span-5 p-8 lg:pr-12">
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-[1px] bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Molecular Synthesis</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 leading-tight">Understanding Peptide Synthesis: The Pepticore Protocol</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        A deep dive into our proprietary laboratory protocols. Discover how high-purity synthesis ensures consistent biological signaling and cellular recovery metrics.
+                    </p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-label-sm">
+<p class="font-bold text-primary">Dr. Elias Thorne</p>
+<p class="text-on-surface-variant">Lead Research Scientist</p>
+</div>
+</div>
+<a class="flex items-center gap-2 font-label-sm text-secondary group/link hover:gap-4 transition-all" href="product.html">
+                            Read Full Thesis <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</section>
+<!-- Article Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
+<h3 class="font-headline-md text-headline-md text-primary">Recent Publications</h3>
+<div class="flex flex-wrap gap-2 sm:gap-4" id="blog-filter-buttons">
+<button class="blog-filter-btn px-6 py-2 rounded-full border border-outline-variant text-label-sm hover:border-primary transition-all" data-filter="all" type="button">All</button>
+<button class="blog-filter-btn px-6 py-2 rounded-full border border-outline-variant text-label-sm hover:border-primary transition-all" data-filter="peptides" type="button">Peptides</button>
+<button class="blog-filter-btn px-6 py-2 rounded-full border border-outline-variant text-label-sm hover:border-primary transition-all" data-filter="regenerative" type="button">Regenerative</button>
+<button class="blog-filter-btn px-6 py-2 rounded-full border border-outline-variant text-label-sm hover:border-primary transition-all" data-filter="protocols" type="button">Protocols</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="article-grid">
+<!-- Card 1 -->
+<article class="flex flex-col h-full bg-white rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] overflow-hidden hover-card transition-all group" data-category="regenerative">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 card-image" alt="Microscopic view of cellular regeneration, showing vibrant bio-luminescent neural networks in shades of teal and white. Extremely high detail, scientific photography, minimalist clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiaLRs6dCmwUp3yfbbv6Fg_l3bz21qHGDhclYXnbEB7bZxQUB0EpdASit3hgLFfO0ndIw5a_mJDQMoSANV0-0Hn_FQjQtc-cQC6BihDoZsfrYPTWymDWh_nzxWI_A8uWuOBO9M8qPkLzTQUDMhsY-QCUczfsPq2jsKQ00YmD9C3GXORZJDWAns7gtRLxKLbzcCfH_fyFr7nJl_VFFtwJNaDpzm-XpLrFtFr7T83UIJLxiweIKTUT6w"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-secondary/10 backdrop-blur-md text-secondary px-3 py-1 rounded font-label-caps text-[10px]">Verified Purity</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">May 24, 2024</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">12 min read</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-4 leading-snug group-hover:text-secondary transition-colors">The Future of Regenerative Medicine</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 line-clamp-3">
+                            Analyzing the shift from systemic treatments to localized peptide applications in musculoskeletal recovery.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-secondary">Peer Reviewed</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">trending_flat</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col h-full bg-white rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] overflow-hidden hover-card transition-all group" data-category="peptides">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 card-image" alt="A sleek, modern laboratory centrifuge with high-end glass and chrome accents. The scene is illuminated with a soft clinical white light, emphasizing a high-tech medical environment. Pristine and professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsBccVYOZqAIcYHNTExv350jmnexVDFaU4ueJ-3tiIhbpF4VsYBMdacyj9y9TjfHGpunBYYrlSa09KDVbxf-eFO8HRSRyKwtOoUwYVsaor5CEe5l8hjidpYWv5KffB-v2_vQMb7UM-1ZdP-wnbgqSBXps1K43YPPgXrOZpnuosik_cJHax4ASmKSXff6bGkhrVW0ewOzvseoSQ_3gT0p02av88Us53qU1r7GUNP03Jb0dluovB8a1A"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">May 18, 2024</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">8 min read</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-4 leading-snug group-hover:text-secondary transition-colors">Bio-Availability Metrics in Peptides</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 line-clamp-3">
+                            A technical review of absorption rates across different delivery systems and molecular weights.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">lab_research</span>
+<span class="font-label-sm text-label-sm text-secondary">Lab Data</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">trending_flat</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col h-full bg-white rounded-xl shadow-[0px_10px_30px_rgba(15,23,42,0.05)] overflow-hidden hover-card transition-all group" data-category="protocols">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 card-image" alt="Scientific abstract art representing molecular bonds using glowing nodes and thin white lines over a deep charcoal background. The lighting is focused and elegant, mimicking a high-end data visualization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATeEm7Nfc-x2hnlB3x-_gWMBaMqkQ3w56rp411di6fZsDnFzARYnJNzxx7A65_e-wodGCEme4mQoTylgCtMMKxu3Ho8n5J3LAoQzEFRntLrhxXuJf7AmdJ4oAqih1AqEzM4ypiHD1cdYmq75ufX4zGxClJN-RnlQe5pS4TBcmXj8q1XhAwj6m-XbKBeGUrcNqSrXF1Mt3jfKswFNaZV4BDaO_Orh_IEiIR1N1Z4AIVWP2SL4JfYszo"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">May 12, 2024</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">15 min read</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-4 leading-snug group-hover:text-secondary transition-colors">Neurological Signaling Protocols</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 line-clamp-3">
+                            New research on how specific peptide sequences interact with central nervous system pathways for cognitive optimization.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">neurology</span>
+<span class="font-label-sm text-label-sm text-secondary">CNS Protocol</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">trending_flat</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Newsletter / Purity Protocol CTA -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="relative bg-primary rounded-xl overflow-hidden py-16 px-12 md:px-24">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">Access the Purity Vault</h2>
+<p class="font-body-lg text-body-lg text-white/80 mb-8">
+                            Join our research network to receive weekly technical summaries, COA updates, and priority access to limited synthesis runs.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow bg-white/10 border border-white/20 rounded-full px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-secondary/50" placeholder="Institutional Email" type="email"/>
+<button class="bg-secondary text-white px-10 py-4 rounded-full font-label-sm hover:bg-secondary/90 transition-all whitespace-nowrap">Subscribe to Research</button>
+</div>
+<p class="mt-4 font-label-sm text-white/40 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                            Secure processing. No marketing. Only science.
+                        </p>
+</div>
+<div class="hidden lg:block">
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-8">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">database</span>
+</div>
+<div class="font-label-caps text-label-caps text-white">Latest COA Database Update</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="text-white/60 text-label-sm">Batch: BP-99-ALPHA</span>
+<span class="text-secondary font-bold text-label-sm">99.8% Pure</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="text-white/60 text-label-sm">Batch: BP-04-OMEGA</span>
+<span class="text-secondary font-bold text-label-sm">99.9% Pure</span>
+</div>
+<div class="flex justify-between items-center py-3">
+<span class="text-white/60 text-label-sm">Batch: BP-77-SIGMA</span>
+<span class="text-secondary font-bold text-label-sm">99.7% Pure</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
+<div class="col-span-1 md:col-span-1">
+<a class="font-headline-md text-headline-md font-bold text-primary mb-6 block" href="index.html">PEPTICORE</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-8">
+                    Defining the standard for high-purity research materials and clinical performance intelligence.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-8">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-transform hover:translate-x-1 inline-block" href="index.html#purity">Purity Protocols</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-transform hover:translate-x-1 inline-block underline decoration-primary" href="wholesale.html#coa-database">COA Database</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-transform hover:translate-x-1 inline-block" href="wholesale.html">Wholesale Terms</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-8">Support</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-transform hover:translate-x-1 inline-block" href="privacy.html">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-transform hover:translate-x-1 inline-block" href="shipping-returns.html">Shipping &amp; Returns</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-transform hover:translate-x-1 inline-block" href="#">Safety Warnings</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-8">Disclaimer</h5>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px] leading-relaxed">
+                    Products are sold for research purposes only. Not for human consumption. Use under laboratory conditions with professional oversight.
+                </p>
+<div class="mt-8 pt-8 border-t border-outline-variant/30">
+<p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 PEPTICORE PHARMACEUTICALS. FOR RESEARCH PURPOSES ONLY.</p>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="cart-badge.js"></script>
+<script src="mobile-menu.js"></script>
+<script src="blog.js"></script>
+</body>
+</html>
