@@ -1,10 +1,12 @@
 // Renders the order summary carried over from the Shipping page, creates a
-// pending order in Supabase, then hands off to a real Stripe Checkout Session
-// (via a Supabase Edge Function) instead of simulating payment.
+// pending order in Supabase, then hands off to WhatsApp to complete payment
+// (instead of a Stripe Checkout Session).
 const CART_STORAGE_KEY = 'peptide-cart-v1';
 const ORDER_SUMMARY_KEY = 'peptide-order-summary-v1';
 const DISCOUNT_RATE = 0.10;
 const DEFAULT_SHIPPING = { label: 'Standard Shipping', price: 9.99 };
+
+const WHATSAPP_NUMBER = '12183012184';
 
 function formatCurrency(amount) {
     return '$' + amount.toFixed(2);
@@ -106,7 +108,7 @@ function showPaymentError(message) {
 
 function showSuccessOverlay(orderId) {
     orderNumberValue.textContent = `#${orderId.slice(0, 8).toUpperCase()}`;
-    orderMethodValue.textContent = 'Card (Stripe)';
+    orderMethodValue.textContent = 'WhatsApp';
     orderTotalValue.textContent = formatCurrency(order.total);
 
     successOverlay.classList.remove('hidden');
@@ -117,7 +119,21 @@ function showSuccessOverlay(orderId) {
     localStorage.removeItem(ORDER_SUMMARY_KEY);
 }
 
-async function startStripeCheckout(triggerBtn) {
+function buildWhatsAppOrderMessage(orderId) {
+    const itemLines = order.items
+        .map(item => `• ${item.name} x${item.qty} — ${formatCurrency((Number(item.price) || 0) * item.qty)}`)
+        .join('\n');
+
+    const message =
+        `Hi, I'd like to complete my purchase.\n\n` +
+        `Order #${orderId.slice(0, 8).toUpperCase()}\n` +
+        `${itemLines}\n\n` +
+        `Total: ${formatCurrency(order.total)}`;
+
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+async function startWhatsAppCheckout(triggerBtn) {
     paymentError.classList.add('hidden');
 
     if (order.items.length === 0) {
@@ -136,8 +152,8 @@ async function startStripeCheckout(triggerBtn) {
     triggerBtn.disabled = true;
     triggerBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span>';
 
-    // Create the order as 'pending' first — the Stripe webhook is what flips
-    // it to 'paid' once a real payment actually succeeds.
+    // Still record the order as 'pending' so you have a trail of it,
+    // even though payment will be confirmed manually over WhatsApp.
     const { data: insertedOrder, error: insertError } = await sb.from('orders').insert({
         user_id: user.id,
         items: order.items,
@@ -146,46 +162,29 @@ async function startStripeCheckout(triggerBtn) {
         shipping_label: order.shippingLabel,
         shipping_price: order.shippingPrice,
         total: order.total,
-        payment_method: 'card',
+        payment_method: 'whatsapp',
         status: 'pending'
     }).select().single();
 
+    triggerBtn.disabled = false;
+    triggerBtn.innerHTML = originalContent;
+
     if (insertError) {
-        triggerBtn.disabled = false;
-        triggerBtn.innerHTML = originalContent;
         showPaymentError('Could not start checkout: ' + insertError.message);
         return;
     }
 
-    try {
-        const { data: { session } } = await sb.auth.getSession();
-        const response = await fetch(`${SUPABASE_URL}/functions/v1/create-checkout-session`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${session.access_token}`
-            },
-            body: JSON.stringify({ orderId: insertedOrder.id, origin: window.location.origin })
-        });
-
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || 'Could not start checkout session.');
-
-        window.location.href = data.url;
-    } catch (err) {
-        triggerBtn.disabled = false;
-        triggerBtn.innerHTML = originalContent;
-        showPaymentError(err.message || 'Something went wrong starting payment. Please try again.');
-    }
+    window.open(buildWhatsAppOrderMessage(insertedOrder.id), '_blank');
 }
 
 document.querySelectorAll('.express-pay-btn').forEach(btn => {
-    btn.addEventListener('click', () => startStripeCheckout(btn));
+    btn.addEventListener('click', () => startWhatsAppCheckout(btn));
 });
 
-completePurchaseBtn.addEventListener('click', () => startStripeCheckout(completePurchaseBtn));
+completePurchaseBtn.addEventListener('click', () => startWhatsAppCheckout(completePurchaseBtn));
 
-// Handle the redirect back from Stripe
+// Handle the redirect back from Stripe (kept in case you re-enable Stripe later;
+// harmless no-op now since nothing redirects back with these params anymore)
 (function handleStripeRedirect() {
     const params = new URLSearchParams(window.location.search);
     const paymentStatus = params.get('payment');
