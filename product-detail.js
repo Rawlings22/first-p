@@ -56,7 +56,7 @@ const qtyValueEl = document.getElementById('qty-value');
 
 function renderProduct(product) {
     currentProduct = product;
-    document.title = `${product.name} | PEPTICORE PHARMACEUTICALS`;
+    document.title = `${product.name} | PURECAREPHARMACY`;
 
     document.getElementById('breadcrumb-name').textContent = product.name;
     document.getElementById('detail-name').textContent = product.name;
