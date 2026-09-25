@@ -6,7 +6,7 @@ const ORDER_SUMMARY_KEY = 'peptide-order-summary-v1';
 const DISCOUNT_RATE = 0.10;
 const DEFAULT_SHIPPING = { label: 'Standard Shipping', price: 9.99 };
 
-const WHATSAPP_NUMBER = '+85247271196';
+const WHATSAPP_NUMBER = '+12183012184';
 
 function formatCurrency(amount) {
     return '$' + amount.toFixed(2);
